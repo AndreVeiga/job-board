@@ -1,15 +1,18 @@
 <p style="color: green"><%= notice %></p>
-
+<p style="color: red"><%= alert %></p>
 <%= render @job %>
 
 <div>
   <%= link_to "Edit this job", edit_job_path(@job) %> |
   <%= link_to "Back to jobs", jobs_path %>
 
-  <p><%= pluralize(0, " comment") %> </>
+  <p><%= pluralize(@job.comments.size, " comment") %> </>
   <%= button_to "Destroy this job", @job, method: :delete %>
 </div>
 
-<h6>Comments</h6>
 
+<h2> Send a new comments </h2>
+<%= render "/comments/form" %>
+
+<h6>Comments</h6>
 <%= render @job.comments %>
