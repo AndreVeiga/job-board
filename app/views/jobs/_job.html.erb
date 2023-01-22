@@ -1,0 +1,20 @@
+<div id="<%= dom_id job %>">
+  <p>
+    <strong>Title:</strong>
+    <%= job.title %>
+  </p>
+
+  <p>
+      <strong>Premium: </strong> <%= check_box("tag", job.id, {checked: job.premium}) %>
+      <%= job.premium %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= job.description %>
+  </p>
+  <%= link_to 'Show', job %>
+
+  <p>
+  <p><%= pluralize(job.comments.size, " comment") %> </>
+</div>
