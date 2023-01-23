@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.most_recent.all
   end
 
   # GET /jobs/1 or /jobs/1.json
@@ -58,7 +58,7 @@ class JobsController < ApplicationController
   end
 
   def premium
-    @jobs = Job.where(premium: true)
+    @jobs = Job.where(premium: true).most_recent.all
   end
 
   private
