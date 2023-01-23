@@ -1,15 +1,15 @@
-<%= form_for [@job, Comment.new] do |f| %>
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
+<%= form_for [@job, Comment.new] do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :body %><br/>
-    <%= f.text_area :body %>
+  <div class="mb-3">
+    <%= form.label :body, class:"form-label" %>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
 
   <div class="actions">
-  <%= f.submit "Send" %>
+    <%= form.submit "Send" %>
   </div>
 <% end %>

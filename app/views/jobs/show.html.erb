@@ -7,12 +7,32 @@
   <%= link_to "Back to jobs", jobs_path %>
 
   <p><%= pluralize(@job.comments.size, " comment") %> </>
-  <%= button_to "Destroy this job", @job, method: :delete %>
+  <%= button_to "Destroy this job", @job, method: :delete, class: "btn btn-outline-danger" %>
 </div>
 
+<div style="margin: 1% 0%">
+<!-- Button trigger modal -->
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add comment
+  </button>
+</div>
 
-<h2> Send a new comments </h2>
-<%= render "/comments/form" %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New comment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "/comments/form" %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h6>Comments</h6>
-<%= render @job.comments %>
+<ul class="list-group list-group-flush">
+  <h6>Comments</h6>
+  <%= render @job.comments %>
+</ul>

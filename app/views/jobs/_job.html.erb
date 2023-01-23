@@ -1,20 +1,21 @@
-<div id="<%= dom_id job %>">
-  <p>
-    <strong>Title:</strong>
-    <%= job.title %>
-  </p>
-
-  <p>
-      <strong>Premium: </strong> <%= check_box("tag", job.id, {checked: job.premium}) %>
-      <%= job.premium %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= job.description %>
-  </p>
-  <%= link_to 'Show', job %>
-
-  <p>
-  <p><%= pluralize(job.comments.size, " comment") %> </>
+<div id="<%= dom_id job %>" style="margin: 1%">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= job.title %>
+      </h5>
+      <p class="card-text">
+        <%= job.description %>
+      </p>
+      <p>
+        <%= check_box("tag", job.id, {checked: job.premium, class: "form-check-input", disabled: true}) %>
+        Premium 
+      </p>
+      <p>
+        <%= pluralize(job.comments.size, " comment") %>
+      <p/>
+      <%= link_to 'Show', job, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
 </div>
+
